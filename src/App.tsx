@@ -1,12 +1,12 @@
 import { Switch, Route } from '@modern-js/runtime/router';
-import './App.css';
 import Upload from './pages/upload';
 import CollectInfo from './pages/collect-info';
 import 'antd-mobile/es/global';
+import './App.css';
 
 const App = () => (
   <Switch>
-    <Route path="/">
+    <Route exact={true} path="/">
       <Upload />
     </Route>
     <Route path="/collect-info">

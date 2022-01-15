@@ -17,6 +17,7 @@ specifiers:
   '@types/react-dom': ^17
   antd-mobile: ^5.0.0-rc.17
   axios: ^0.24.0
+  dayjs: ^1.10.7
   del-cli: ^4.0.1
   express: ^4.17.2
   react: ^17.0.1
@@ -33,6 +34,7 @@ dependencies:
   '@types/express-formidable': 1.2.0
   antd-mobile: 5.0.0-rc.17_react-dom@17.0.2+react@17.0.2
   axios: 0.24.0
+  dayjs: 1.10.7
   express: 4.17.2
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2

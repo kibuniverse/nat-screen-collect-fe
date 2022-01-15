@@ -1,4 +1,5 @@
 import * as React from 'react';
+import dayjs from 'dayjs';
 import {
   Form,
   Button,
@@ -19,7 +20,6 @@ const Upload: React.FC = () => {
   const [natScreen, setNatScreen] = React.useState<File>();
 
   const handleUploadImg = async (file: File) => {
-    console.info(file);
     setNatScreen(file);
     return { url: window.URL.createObjectURL(file) };
   };
@@ -28,12 +28,8 @@ const Upload: React.FC = () => {
     if (!natScreen) {
       Dialog.alert({
         content: '请上传截图',
-        onConfirm: () => {
-          console.info('Confirmed');
-        },
       });
     }
-    console.info(v);
     const formData = new FormData();
     formData.append('file', natScreen as File);
     formData.append('name', v.name);
@@ -41,9 +37,17 @@ const Upload: React.FC = () => {
     formData.append('date', v.date);
 
     const ans = await uploadNatImage(formData);
-    console.info(ans);
     if (ans.success) {
       Toast.show('上传成功✨');
+    }
+  };
+  const handleFieldChange = (v: Record<string, any>[] = []) => {
+    const dateObj = v.find(item => item.name[0] === 'date');
+    if (dateObj) {
+      const [, day] = dateObj.value;
+      if (String(day) !== dayjs().format('DD')) {
+        Toast.show('你选择的日期不是今天，看清楚后再提交哦～');
+      }
     }
   };
 
@@ -51,11 +55,15 @@ const Upload: React.FC = () => {
     <div>
       <Form
         onFinish={handleUpload}
+        onFieldsChange={handleFieldChange}
         footer={
           <Button block={true} type="submit" color="primary" size="large">
             提交
           </Button>
-        }>
+        }
+        initialValues={{
+          date: ['1', dayjs().format('DD')],
+        }}>
         <Form.Header>每日核酸结果统计</Form.Header>
         <Form.Item
           name="class"
@@ -84,7 +92,8 @@ const Upload: React.FC = () => {
           label="日期"
           trigger="onConfirm"
           name="date"
-          onClick={() => setDataPickerVisible(true)}>
+          onClick={() => setDataPickerVisible(true)}
+          rules={[{ required: true, message: '日期不能为空' }]}>
           <Picker
             columns={dateColumns}
             visible={datePickerVisible}
@@ -95,7 +104,7 @@ const Upload: React.FC = () => {
               if (items.every(item => item === null)) {
                 return '未选择';
               } else {
-                return items.map(item => item?.label ?? '未选择').join(' - ');
+                return items.map(item => item?.label ?? '未选择').join('-');
               }
             }}
           </Picker>
