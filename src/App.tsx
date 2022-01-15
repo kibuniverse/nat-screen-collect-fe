@@ -2,7 +2,7 @@ import { Switch, Route } from '@modern-js/runtime/router';
 import Upload from './pages/upload';
 import CollectInfo from './pages/collect-info';
 import 'antd-mobile/es/global';
-import './App.css';
+import ResultPage from './pages/result';
 
 const App = () => (
   <Switch>
@@ -11,6 +11,9 @@ const App = () => (
     </Route>
     <Route path="/collect-info">
       <CollectInfo />
+    </Route>
+    <Route path="/success">
+      <ResultPage />
     </Route>
     <Route path="*">
       <div>404</div>

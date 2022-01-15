@@ -6,5 +6,16 @@ import ImageUploader from 'antd-mobile/es/components/image-uploader';
 import Dialog from 'antd-mobile/es/components/dialog';
 import Picker from 'antd-mobile/es/components/picker';
 import Toast from 'antd-mobile/es/components/toast';
+import Result from 'antd-mobile/es/components/result';
 
-export { Button, Form, Cascader, Input, ImageUploader, Dialog, Picker, Toast };
+export {
+  Button,
+  Form,
+  Cascader,
+  Input,
+  ImageUploader,
+  Dialog,
+  Picker,
+  Toast,
+  Result,
+};

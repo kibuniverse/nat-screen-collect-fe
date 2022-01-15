@@ -1,5 +1,6 @@
 import * as React from 'react';
 import dayjs from 'dayjs';
+import { useHistory } from '@modern-js/runtime/router';
 import {
   Form,
   Button,
@@ -16,9 +17,9 @@ import { uploadNatImage } from '@/api/upload';
 const Upload: React.FC = () => {
   const [visible, setVisible] = React.useState(false);
   const [datePickerVisible, setDataPickerVisible] = React.useState(false);
-
+  const [loading, setLoading] = React.useState(false);
   const [natScreen, setNatScreen] = React.useState<File>();
-
+  const history = useHistory();
   const handleUploadImg = async (file: File) => {
     setNatScreen(file);
     return { url: window.URL.createObjectURL(file) };
@@ -35,10 +36,13 @@ const Upload: React.FC = () => {
     formData.append('name', v.name);
     formData.append('class', v.class);
     formData.append('date', v.date);
-
+    setLoading(true);
     const ans = await uploadNatImage(formData);
     if (ans.success) {
-      Toast.show('上传成功✨');
+      setTimeout(() => {
+        setLoading(false);
+        history.push('/success');
+      }, 500);
     }
   };
   const handleFieldChange = (v: Record<string, any>[] = []) => {
@@ -57,7 +61,13 @@ const Upload: React.FC = () => {
         onFinish={handleUpload}
         onFieldsChange={handleFieldChange}
         footer={
-          <Button block={true} type="submit" color="primary" size="large">
+          <Button
+            block={true}
+            loading={loading}
+            loadingText="提交中"
+            type="submit"
+            color="primary"
+            size="large">
             提交
           </Button>
         }
