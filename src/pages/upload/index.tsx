@@ -38,13 +38,13 @@ const Upload: React.FC = () => {
     formData.append('date', v.date);
 
     setLoading(true);
-    const delayPost = setTimeout(() => {
+    const delayCancel = setTimeout(() => {
       Toast.show('服务器出小差了,请联系 @严凯治 解决');
       setLoading(false);
     }, 3000);
 
     const { data } = await uploadNatImage(formData);
-    clearTimeout(delayPost);
+    clearTimeout(delayCancel);
 
     if (data.success) {
       setTimeout(() => {
