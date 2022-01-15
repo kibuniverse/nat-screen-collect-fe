@@ -76,6 +76,12 @@ const Upload: React.FC = () => {
         }}>
         <Form.Header>每日核酸结果统计</Form.Header>
         <Form.Item
+          label="姓名"
+          name="name"
+          rules={[{ required: true, message: '姓名不能为空' }]}>
+          <Input placeholder="请输入姓名" />
+        </Form.Item>
+        <Form.Item
           name="class"
           label="班级"
           trigger="onConfirm"
@@ -119,12 +125,7 @@ const Upload: React.FC = () => {
             }}
           </Picker>
         </Form.Item>
-        <Form.Item
-          label="姓名"
-          name="name"
-          rules={[{ required: true, message: '姓名不能为空' }]}>
-          <Input placeholder="请输入姓名" />
-        </Form.Item>
+
         <Form.Item label="核酸检测截图" name="img">
           <ImageUploader upload={handleUploadImg} />
         </Form.Item>
