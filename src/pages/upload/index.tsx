@@ -12,7 +12,7 @@ import {
   Toast,
 } from '@/utils/import';
 import { classOptions, dateColumns } from '@/data';
-import { uploadNatImage } from '@/api/upload';
+import { uploadNatImage } from '@/api';
 
 const Upload: React.FC = () => {
   const [visible, setVisible] = React.useState(false);
@@ -20,6 +20,7 @@ const Upload: React.FC = () => {
   const [loading, setLoading] = React.useState(false);
   const [natScreen, setNatScreen] = React.useState<File>();
   const history = useHistory();
+
   const handleUploadImg = async (file: File) => {
     setNatScreen(file);
     return { url: window.URL.createObjectURL(file) };

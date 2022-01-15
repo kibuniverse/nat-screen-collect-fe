@@ -16,7 +16,7 @@ const App = () => (
       <ResultPage />
     </Route>
     <Route path="*">
-      <div>404</div>
+      <CollectInfo />
     </Route>
   </Switch>
 );
