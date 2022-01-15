@@ -36,9 +36,17 @@ const Upload: React.FC = () => {
     formData.append('name', v.name);
     formData.append('class', v.class);
     formData.append('date', v.date);
+
     setLoading(true);
-    const ans = await uploadNatImage(formData);
-    if (ans.success) {
+    const delayPost = setTimeout(() => {
+      Toast.show('服务器出小差了,请联系 @严凯治 解决');
+      setLoading(false);
+    }, 3000);
+
+    const { data } = await uploadNatImage(formData);
+    clearTimeout(delayPost);
+
+    if (data.success) {
       setTimeout(() => {
         setLoading(false);
         history.push('/success');
