@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { getClassesDayInfo } from '@/api';
+import { getClassesDayInfo } from '@/nat/api';
 import {
   ProgressCircle,
   Card,
@@ -7,9 +7,9 @@ import {
   Space,
   List,
   Button,
-} from '@/utils/import';
-import { parseDate } from '@/utils/parse-date';
-import { obj2UrlParams } from '@/utils/obj2urlparams';
+} from '@/nat/utils/import';
+import { parseDate } from '@/nat/utils/parse-date';
+import { obj2UrlParams } from '@/nat/utils/obj2urlparams';
 
 const InfoTextStyle = {
   fontSize: '1rem',

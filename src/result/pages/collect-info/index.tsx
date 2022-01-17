@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { PickerColumn } from 'antd-mobile/es/components/picker-view';
-import CollectResult from '../../components/collect-result';
-import { getUploadedDate } from '@/api';
-import { Form, Picker, Cascader, Button } from '@/utils/import';
-import { classOptions } from '@/data';
-import { parseDate } from '@/utils/parse-date';
+import CollectResult from '@/nat/components/collect-result';
+import { getUploadedDate } from '@/nat/api';
+import { Form, Picker, Cascader, Button } from '@/nat/utils/import';
+import { classOptions } from '@/nat/data';
+import { parseDate } from '@/nat/utils/parse-date';
 
 const CollectInfo: React.FC = () => {
   const [pickerColnums, setPickerColnums] = React.useState<PickerColumn[]>([]);

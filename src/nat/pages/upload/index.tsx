@@ -10,9 +10,9 @@ import {
   Dialog,
   Picker,
   Toast,
-} from '@/utils/import';
-import { classOptions, dateColumns } from '@/data';
-import { uploadNatImage } from '@/api';
+} from '@/nat/utils/import';
+import { classOptions, dateColumns } from '@/nat/data';
+import { uploadNatImage } from '@/nat/api';
 
 const Upload: React.FC = () => {
   const [visible, setVisible] = React.useState(false);
@@ -42,7 +42,7 @@ const Upload: React.FC = () => {
     const delayCancel = setTimeout(() => {
       Toast.show('服务器出小差了,请联系 @严凯治 解决');
       setLoading(false);
-    }, 3000);
+    }, 5000);
 
     const { data } = await uploadNatImage(formData);
     clearTimeout(delayCancel);

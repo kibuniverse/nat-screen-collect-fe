@@ -1,4 +1,4 @@
-import { Result } from '@/utils/import';
+import { Result } from '@/nat/utils/import';
 
 const ResultPage: React.FC = () => (
   <Result

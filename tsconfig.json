@@ -20,6 +20,7 @@
     "src",
     "shared",
     "config",
-    "api"
+    "api",
+    "server"
   ]
 }
