@@ -39,8 +39,12 @@ export const dateColumns = [
   [
     { label: '1月', value: '1' },
     { label: '2月', value: '2' },
+    { label: '3月', value: '3' },
   ],
   [
+    { label: '7日', value: '7' },
+    { label: '8日', value: '8' },
+    { label: '9日', value: '9' },
     { label: '10日', value: '10' },
     { label: '11日', value: '11' },
     { label: '12日', value: '12' },

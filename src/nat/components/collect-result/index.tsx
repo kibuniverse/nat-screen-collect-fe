@@ -35,7 +35,7 @@ const CollectResult: React.FC<IProps> = props => {
   }, [date, classes]);
 
   const handleDownloadZip = () => {
-    window.open(`http://192.168.1.116:3000/download?${obj2UrlParams(props)}`);
+    window.open(`/download?${obj2UrlParams(props)}`);
   };
 
   return (
