@@ -58,7 +58,10 @@ const Upload: React.FC = () => {
     const dateObj = v.find(item => item.name[0] === 'date');
     if (dateObj) {
       const [, day] = dateObj.value;
-      if (String(day) !== dayjs().format('DD')) {
+      if (
+        String(day) !== dayjs().format('DD') &&
+        String(day) !== dayjs().format('D')
+      ) {
         Toast.show('你选择的日期不是今天，看清楚后再提交哦～');
       }
     }
