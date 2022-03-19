@@ -6,11 +6,7 @@ import { obj2UrlParams } from '@/nat/utils/obj2urlparams';
  * @returns 上传截图已经相关信息
  */
 export const uploadNatImage = async (props: FormData) =>
-  axios.post('/api/upload', props, {
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-    },
-  });
+  axios.post('/api/upload', props);
 
 /**
  *

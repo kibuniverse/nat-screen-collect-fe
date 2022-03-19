@@ -86,7 +86,7 @@ const Upload: React.FC = () => {
         initialValues={{
           date: ['1', dayjs().format('DD')],
         }}>
-        <Form.Header>每日核酸结果统计</Form.Header>
+        <Form.Header>截图结果统计</Form.Header>
         <Form.Item
           label="姓名"
           name="name"
@@ -138,7 +138,7 @@ const Upload: React.FC = () => {
           </Picker>
         </Form.Item>
 
-        <Form.Item label="核酸检测截图" name="img">
+        <Form.Item label="截图" name="img">
           <ImageUploader upload={handleUploadImg} />
         </Form.Item>
       </Form>

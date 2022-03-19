@@ -36,11 +36,7 @@ export const classOptions = [
 ];
 
 export const dateColumns = [
-  [
-    { label: '1月', value: '1' },
-    { label: '2月', value: '2' },
-    { label: '3月', value: '3' },
-  ],
+  [{ label: '3月', value: '3' }],
   [
     { label: '7日', value: '7' },
     { label: '8日', value: '8' },
